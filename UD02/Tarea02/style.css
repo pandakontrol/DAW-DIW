@@ -1,0 +1,53 @@
+
+body{
+  background: grey;
+}
+h1 {
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+
+}
+li{
+  margin-right:15%;
+  margin-bottom: 15%;
+  display: inline-block;
+
+
+}
+
+ul{
+
+  display: inline-block;
+  text-decoration: none;
+  list-style: none;
+}
+ nav{
+   text-align: center;
+
+ }
+
+ a[rel~='alternate']:before{
+content: url('add_circle_outline-24px.svg')
+}
+a[rel~='next']:before{
+content: url('add_circle_outline-24px.svg')
+}
+a[rel~='tag']:before{
+content: url('add_circle_outline-24px.svg')
+}
+a[rel~='bookmark']:before{
+content: url('24px.svg')
+}
+a[rel~='help']:before{
+content: url('add_circle_outline-24px.svg')
+}
+a[rel~='search']:before{
+content: url('add_circle_outline-24px.svg')
+}
+a[rel~='nofollow']:before{
+content: url('add_circle_outline-24px.svg')
+}
