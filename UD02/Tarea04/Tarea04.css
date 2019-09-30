@@ -1,0 +1,55 @@
+body{
+  font-family: 'Grenze';
+}
+/* INPUT NOMBRE */
+
+input[id='nombre']{
+  background: #C4E538;
+}
+input[id='nombre']:invalid{
+  background: #ED4C67;
+}
+
+/* PUNTOS DE CORDURA */
+
+input[id='puntosCordura']{
+  background: #C4E538;
+}
+input[id='puntosCordura']:invalid{
+  background: #ED4C67;
+}
+
+/* BOTON CREAR PERSONAJE */
+
+input[id='crear']{
+  border-radius: 50px;
+  background: #C4E538;
+  font-family: 'Grenze';
+  box-shadow: 2px 2px 5px #999;
+  border:none;
+  text-transform: uppercase;
+}
+
+/* BOTON ID PROFESION */
+
+select[id='profesion']{
+border-radius: 50px;
+font-family: 'Grenze';
+}
+
+/* CHECKBOX */
+
+input[type='checkbox']:checked{
+content: url('xuxu.svg');
+width: 50px;
+height: 50px;
+
+}
+/* ENLACE NOMBRE */
+a{
+  text-decoration: none;
+  color: black;
+}
+input:target{
+  background: blue;
+}
