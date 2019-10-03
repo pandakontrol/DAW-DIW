@@ -20,7 +20,7 @@ li a{
 }
 .modulo{
   display:inline-block;
-  width: 33%;
+  width: 32%;
 
 
 }
@@ -34,4 +34,30 @@ li {
 }
 .modulo:nth-child(even){
   background: lightgrey;
+}
+
+/* TCHULU */
+
+.activo{
+
+  background-image: url(xuxu.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+  
+}
+
+@media screen and (max-width:700px) {
+.header-right{
+  text-align: left;
+
+}
+ul li{
+  display: block;
+
+}
+header{
+  height: auto;
+}
+
 }
