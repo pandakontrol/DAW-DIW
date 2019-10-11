@@ -1,0 +1,39 @@
+/* CSS GRID */
+
+h1{
+  text-align: center;
+}
+/* Le damos forma a las columnas */
+
+.container{
+display: grid;
+grid-template-columns: 1fr 2fr 1fr 2fr;
+grid-gap: 15px;
+grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+/* Hacemos el item2 que ocupe 3 columnas */
+.item2{
+  grid-column-end:span 3;
+}
+/* Coloreamos los numeros en gris */
+
+.item:nth-child(odd){
+  background-color: var(--grey);
+}
+/* Damos sombra a los items, pasando el raton solo por los numeros */
+
+.item:hover:nth-child(odd)+.item,.item:hover:nth-child(odd){
+  box-shadow: 20px 20px 20px black;
+}
+
+/* Añadimos la imagen */
+
+#SealOfApproval{
+  background-image: url(cthulhu_approval.gif);
+  position: fixed;
+  width:200px;
+  height: 200px;
+  right: 0;
+  bottom:0;
+  background-size: 300px 300px;
+}

@@ -67,26 +67,3 @@ h6 {
 .item p {
     margin: 0 0 5px 0;
 }
-
-/* CSS GRID */
-
-h1{
-  text-align: center;
-}
-/* Le damos forma a las columnas */
-
-.container{
-display: grid;
-grid-template-columns: 1fr 2fr 1fr 2fr;
-grid-gap: 15px;
-grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-}
-/* Hacemos el item2 que ocupe 3 columnas */
-.item2{
-  grid-column-end:span 3;
-}
-/* Coloreamos los numeros en gris */
-
-.item:nth-child(odd){
-  background-color: var(--grey);
-}
