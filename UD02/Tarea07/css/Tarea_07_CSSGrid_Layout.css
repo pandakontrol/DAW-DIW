@@ -1,6 +1,7 @@
 /* TITULO */
 
 h1{
+  font-size: 18px;
   text-align: center;
 }
 
@@ -12,7 +13,7 @@ section{
   grid-template-areas: "header header"
                        "nav main"
                        "footer footer";
-  grid-template-columns:500px 1fr;
+  grid-template-columns:200px 1fr;
   grid-gap: 15px;
 }
 /* HEADER */
@@ -72,6 +73,7 @@ main{
 /* FOOTER */
 
 footer{
+  margin-top: 50px;
   font-size: 18px;
   text-align: center;
   grid-area:footer;
