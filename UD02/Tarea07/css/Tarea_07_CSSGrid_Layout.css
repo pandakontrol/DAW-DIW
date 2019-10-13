@@ -1,0 +1,11 @@
+/* TITULO CENTRADO */
+
+h1{
+  text-align: center;
+}
+
+section{
+  display: grid;
+  grid-template-columns: 400px 1fr ;
+  grid-template-areas: "header header nav main footer footer"
+}
