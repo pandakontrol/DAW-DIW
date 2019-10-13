@@ -3,9 +3,33 @@
 h1{
   text-align: center;
 }
+/* Establecemos con grid-area, como queremos ordenar la pagina y
+ damos el tamaño a las 2 columnas de section */
 
 section{
   display: grid;
-  grid-template-columns: 400px 1fr ;
-  grid-template-areas: "header header nav main footer footer"
+  grid-gap: 15px;
+  grid-template-columns:500px 1fr ;
+  grid-template-areas: "header header" "nav main " "footer footer"
+}
+
+header{
+  grid-area: header;
+}
+
+nav{
+  grid-area: nav;
+
+}
+
+main{
+  display: grid;
+  grid-area: main;
+  grid-gap:15px;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+footer{
+  grid-area:footer;
 }
