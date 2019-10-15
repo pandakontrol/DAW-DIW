@@ -1,0 +1,25 @@
+body{
+
+}
+.rojo{
+    width: 50px;
+    height:  50px;
+    border: 1px solid blue;
+    background-color:lightblue;
+}
+
+
+.verde{
+    width: 50px;
+    height:  50px;
+    border: 1px solid green;
+    background-color:lightgreen;
+}
+
+.mapa{
+    display: grid;
+    width: 600px;
+    height:  600px;
+    grid-template-columns: repeat(21,1fr);
+    grid-template-rows: repeat(13,1fr);
+}
