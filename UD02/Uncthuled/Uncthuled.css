@@ -1,25 +1,35 @@
-body{
-
-}
-.rojo{
-    width: 50px;
-    height:  50px;
-    border: 1px solid blue;
-    background-color:lightblue;
-}
-
-
-.verde{
-    width: 50px;
-    height:  50px;
-    border: 1px solid green;
-    background-color:lightgreen;
-}
+ /* MAPA JUEGO */
 
 .mapa{
     display: grid;
-    width: 600px;
+    width:600px;
     height:  600px;
     grid-template-columns: repeat(21,1fr);
-    grid-template-rows: repeat(13,1fr);
+    grid-template-rows: repeat(14,1fr);
+}
+
+.camino{
+    width: 50px;
+    height: 50px;
+    background-color:yellow;
+}
+
+.pilar{
+    width:50px;
+    height:50px;
+    background-image: url("fondo2.jpg");
+    background-color:black;
+}
+/* PERSONAJES */
+
+.personaje{
+  background-image: url("patatas.png");
+  background-size: 50px 50px;
+  background-color: yellow;
+}
+
+.momia{
+  background-image: url("gordo.png");
+  background-size: 50px 50px;
+
 }
