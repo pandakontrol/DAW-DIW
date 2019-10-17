@@ -1,19 +1,23 @@
-function listo(){
-  mapa =[[1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
-  [0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0]];
+var personajeX = 0;
+var personajeY = 5;
+mapa =[[1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
+[0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0]];
 
+function listo(){
+
+document.querySelector(".mapa").innerHTML="";
 
   for (var i=0;i<14;i++){
     for (var j=0;j<21;j++){
@@ -31,7 +35,7 @@ function listo(){
       document.querySelector(".mapa").appendChild(newDiv);
     }
   }
-
+  document.addEventListener('keydown', capturarMovimiento);
 }
 
 window.onload=function(){
@@ -42,16 +46,32 @@ window.onload=function(){
 /* FUNCIÓN PARA CAPTURAR EL MOVIMIENTO DE LAS TECLAS */
 function moverAbajo(){
   console.log("Tecla abajo");
+  mapa[personajeX][personajeY]=0;
+  personajeX++;
+  mapa[personajeX][personajeY]=2;
+  listo();
 }
 
 function moverArriba(){
   console.log("Tecla arriba");
+  mapa[personajeX][personajeY]=0;
+  personajeX--;
+  mapa[personajeX][personajeY]=2;
+  listo();
 }
 function moverIzquierda(){
   console.log("Tecla izquierda");
+  mapa[personajeX][personajeY]=0;
+  personajeY--;
+  mapa[personajeX][personajeY]=2;
+  listo();
 }
 function moverDerecha(){
   console.log("Tecla derecha");
+  mapa[personajeX][personajeY]=0;
+  personajeY++;
+  mapa[personajeX][personajeY]=2;
+  listo();
 }
 
 
