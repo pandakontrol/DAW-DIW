@@ -3,7 +3,7 @@
 .mapa{
     display: grid;
     width:600px;
-    height:600px;
+    height:auto;
     grid-template-columns: repeat(21,1fr);
     grid-template-rows: repeat(14,1fr);
 }
@@ -16,11 +16,10 @@
     background-color:yellow;
 }
 
-.caminoPisado{
+.huellas{
+  background-color: yellow;
   background-image: url("huellas.png");
   background-size: 50px 50px;
-
-
 }
 
 .pilar{

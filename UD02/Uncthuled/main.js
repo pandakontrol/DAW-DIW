@@ -36,7 +36,7 @@ document.querySelector(".mapa").innerHTML="";
         newDiv.classList.add("personaje");
       }
       else if (mapa[i][j]==4){
-        newDiv.classList.add("caminoPisado");
+        newDiv.classList.add("huellas");
       }
       document.querySelector(".mapa").appendChild(newDiv);
     }
@@ -53,30 +53,33 @@ window.onload=function(){
 
 function moverAbajo(){
   console.log("Tecla abajo");
-  mapa[personajeX][personajeY]=0;
+  /* El número 4 pertenece a las huellas que deja el personaje */
+  mapa[personajeX][personajeY]=4;
   personajeX++;
   mapa[personajeX][personajeY]=2;
-
   listo();
 }
 
 function moverArriba(){
   console.log("Tecla arriba");
-  mapa[personajeX][personajeY]=0;
+  /* El número 4 pertenece a las huellas que deja el personaje */
+  mapa[personajeX][personajeY]=4;
   personajeX--;
   mapa[personajeX][personajeY]=2;
   listo();
 }
 function moverIzquierda(){
   console.log("Tecla izquierda");
-  mapa[personajeX][personajeY]=0;
+  /* El número 4 pertenece a las huellas que deja el personaje */
+  mapa[personajeX][personajeY]=4;
   personajeY--;
   mapa[personajeX][personajeY]=2;
   listo();
 }
 function moverDerecha(){
   console.log("Tecla derecha");
-  mapa[personajeX][personajeY]=0;
+  /* El número 4 pertenece a las huellas que deja el personaje */
+  mapa[personajeX][personajeY]=4;
   personajeY++;
   mapa[personajeX][personajeY]=2;
   listo();
@@ -107,5 +110,5 @@ function capturarMovimiento(n){
   }
 
 
- 
+
 }
