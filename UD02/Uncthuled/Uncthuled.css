@@ -3,7 +3,7 @@
 .mapa{
     display: grid;
     width:600px;
-    height:  600px;
+    height:600px;
     grid-template-columns: repeat(21,1fr);
     grid-template-rows: repeat(14,1fr);
 }
@@ -19,14 +19,14 @@
 .caminoPisado{
   background-image: url("huellas.png");
   background-size: 50px 50px;
-  background-color: yellow;
+
 
 }
 
 .pilar{
     width:50px;
     height:50px;
-    background-image: url("fondo2.jpg");
+    background-image: url("mantel.jpg");
     background-color:black;
 }
 
@@ -39,7 +39,8 @@
 }
 
 .momia{
-  background-image: url("gordo.png");
+  background-image: url("gordi.gif");
   background-size: 50px 50px;
+  background-color: yellow;
 
 }

@@ -1,5 +1,8 @@
+
+
 var personajeX = 0;
 var personajeY = 5;
+
 mapa =[[1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 [0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0],
@@ -29,8 +32,11 @@ document.querySelector(".mapa").innerHTML="";
       } else if(mapa[i][j]==3){
         newDiv.classList.add("momia");
       }
-      else if (mapa[i][j]==2) {
+      else if (mapa[i][j]==2){
         newDiv.classList.add("personaje");
+      }
+      else if (mapa[i][j]==4){
+        newDiv.classList.add("caminoPisado");
       }
       document.querySelector(".mapa").appendChild(newDiv);
     }
@@ -44,11 +50,13 @@ window.onload=function(){
 };
 
 /* FUNCIÓN PARA CAPTURAR EL MOVIMIENTO DE LAS TECLAS */
+
 function moverAbajo(){
   console.log("Tecla abajo");
   mapa[personajeX][personajeY]=0;
   personajeX++;
   mapa[personajeX][personajeY]=2;
+
   listo();
 }
 
@@ -99,4 +107,5 @@ function capturarMovimiento(n){
   }
 
 
+ 
 }
