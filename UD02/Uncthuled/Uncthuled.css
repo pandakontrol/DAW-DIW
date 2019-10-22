@@ -4,8 +4,8 @@
     display: grid;
     width:600px;
     height:auto;
-    grid-template-columns: repeat(21,1fr);
-    grid-template-rows: repeat(14,1fr);
+    grid-template-columns: repeat(23,1fr);
+    grid-template-rows: repeat(15,1fr);
 }
 
 /* CAMINO Y PILARES */
@@ -14,12 +14,6 @@
     width: 50px;
     height: 50px;
     background-color:yellow;
-}
-
-.huellas{
-  background-color: yellow;
-  background-image: url("huellas.png");
-  background-size: 50px 50px;
 }
 
 .pilar{
@@ -42,4 +36,30 @@
   background-size: 50px 50px;
   background-color: yellow;
 
+}
+
+/* HUELLAS PERSONAJES */
+
+.huellasArriba{
+  background-color: yellow;
+  background-image: url("huellasArriba.png");
+  background-size: 50px 50px;
+}
+
+.huellasAbajo{
+  background-color: yellow;
+  background-image: url("huellasAbajo.png");
+  background-size: 50px 50px;
+}
+
+.huellasIzquierda{
+  background-color: yellow;
+  background-image: url("huellasIzquierda.png");
+  background-size: 50px 50px;
+}
+
+.huellasDerecha{
+  background-color: yellow;
+  background-image: url("huellasDerecha.png");
+  background-size: 50px 50px;
 }
