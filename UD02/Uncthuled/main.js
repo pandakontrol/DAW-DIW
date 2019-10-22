@@ -3,6 +3,9 @@
 var personajeX = 0;
 var personajeY = 5;
 
+var momiaX = 14;
+var momiaY = 4;
+
 mapa =[[1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
 [1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
@@ -16,12 +19,12 @@ mapa =[[1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
 [1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
 [1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,1],
+[1,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
 
 function listo(){
 
-document.querySelector(".mapa").innerHTML="";
+  document.querySelector(".mapa").innerHTML="";
 
   for (var i=0;i<15;i++){
     for (var j=0;j<23;j++){
@@ -52,11 +55,14 @@ document.querySelector(".mapa").innerHTML="";
     }
   }
   document.addEventListener('keydown', capturarMovimiento);
+  setInterval(moverMomia,1000);
+  moverMomia();
 }
 
 window.onload=function(){
 
-  listo()
+  listo();
+
 };
 
 /* FUNCIÓN PARA CAPTURAR EL MOVIMIENTO DE LAS TECLAS */
@@ -117,22 +123,57 @@ function capturarMovimiento(n){
 
     case 37:
     moverIzquierda();
-        break;
+    break;
 
     case 38:
     moverArriba();
-        break;
+    break;
 
     case 39:
     moverDerecha();
-        break;
+    break;
 
     case 40:
     moverAbajo();
-        break;
+    break;
 
   }
+}
 
+/* FUNCIÓN PARA MOVER LA MOMIA */
 
+function moverMomia() {
+  var numeroRandom = Math.floor(Math.random() * 4) + 1;
+  switch (numeroRandom) {
+    // Caso hacia arriba
+    case 1:
+    mapa[momiaX][momiaY]=0;
+    momiaX++;
+    mapa[momiaX][momiaY]=3;
+    listo();
+    break;
+    // Caso hacia abajo
+    case 2:
+    mapa[momiaX][momiaY]=0;
+    momiaX--;
+    mapa[momiaX][momiaY]=3;
+    listo();
+    break;
+    // Caso hacia la izquierda
+    case 3:
+    mapa[momiaX][momiaY]=0;
+    momiaY++;
+    mapa[momiaX][momiaY]=3;
+    listo();
+    break;
+    // Caso hacia la derecha
+    case 4:
+    mapa[momiaX][momiaY]=0;
+    momiaY--;
+    mapa[momiaX][momiaY]=3;
+    listo();
+    break;
+
+  }
 
 }
