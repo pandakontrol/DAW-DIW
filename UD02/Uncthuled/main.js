@@ -1,3 +1,4 @@
+/* UNCTHULED GAME! */
 
 
 var personajeX = 0;
@@ -22,7 +23,7 @@ mapa =[[1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 [1,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
 
-function listo(){
+function dibujarMapa(){
 
   document.querySelector(".mapa").innerHTML="";
 
@@ -54,11 +55,14 @@ function listo(){
       document.querySelector(".mapa").appendChild(newDiv);
     }
   }
-  document.addEventListener('keydown', capturarMovimiento);
-  setInterval(moverMomia,1000);
-  moverMomia();
+  
 }
+function listo(){
+  dibujarMapa();
+  setInterval(moverMomia,1000);
+  document.addEventListener('keydown', capturarMovimiento);
 
+}
 window.onload=function(){
 
   listo();
@@ -74,7 +78,8 @@ function moverAbajo(){
     mapa[personajeX][personajeY]=5;
     personajeX++;
     mapa[personajeX][personajeY]=2;
-    listo();
+    dibujarMapa();
+
   }
 
 }
@@ -86,7 +91,7 @@ function moverArriba(){
     mapa[personajeX][personajeY]=4;
     personajeX--;
     mapa[personajeX][personajeY]=2;
-    listo();
+    dibujarMapa();
   }
 
 }
@@ -97,7 +102,7 @@ function moverIzquierda(){
     mapa[personajeX][personajeY]=6;
     personajeY--;
     mapa[personajeX][personajeY]=2;
-    listo();
+    dibujarMapa();
   }
 
 }
@@ -110,7 +115,7 @@ function moverDerecha(){
     mapa[personajeX][personajeY]=7;
     personajeY++;
     mapa[personajeX][personajeY]=2;
-    listo();
+    dibujarMapa();
   }
 
 }
@@ -143,35 +148,47 @@ function capturarMovimiento(n){
 /* FUNCIÓN PARA MOVER LA MOMIA */
 
 function moverMomia() {
-  var numeroRandom = Math.floor(Math.random() * 4) + 1;
+  var numeroRandom = Math.floor(Math.random() * 3);
   switch (numeroRandom) {
+
     // Caso hacia arriba
-    case 1:
-    mapa[momiaX][momiaY]=0;
-    momiaX++;
-    mapa[momiaX][momiaY]=3;
-    listo();
+    case 0:
+    if (mapa[momiaX-1][momiaY] != 1) {
+      mapa[momiaX][momiaY]=0;
+      momiaX--;
+      mapa[momiaX][momiaY]=3;
+      dibujarMapa();
+    }
     break;
+
     // Caso hacia abajo
-    case 2:
-    mapa[momiaX][momiaY]=0;
-    momiaX--;
-    mapa[momiaX][momiaY]=3;
-    listo();
+    case 1:
+    if (mapa[momiaX+1][momiaY] != 1) {
+      mapa[momiaX][momiaY]=0;
+      momiaX++;
+      mapa[momiaX][momiaY]=3;
+      dibujarMapa();
+    }
     break;
+
     // Caso hacia la izquierda
-    case 3:
-    mapa[momiaX][momiaY]=0;
-    momiaY++;
-    mapa[momiaX][momiaY]=3;
-    listo();
+    case 2:
+    if (mapa[momiaX][momiaY-1] != 1) {
+      mapa[momiaX][momiaY]=0;
+      momiaY--;
+      mapa[momiaX][momiaY]=3;
+      dibujarMapa();
+    }
     break;
+
     // Caso hacia la derecha
-    case 4:
-    mapa[momiaX][momiaY]=0;
-    momiaY--;
-    mapa[momiaX][momiaY]=3;
-    listo();
+    case 3:
+    if (mapa[momiaX][momiaY+1] != 1) {
+      mapa[momiaX][momiaY]=0;
+      momiaY++;
+      mapa[momiaX][momiaY]=3;
+      dibujarMapa();
+    }
     break;
 
   }
