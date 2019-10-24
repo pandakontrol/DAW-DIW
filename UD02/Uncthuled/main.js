@@ -4,24 +4,24 @@
 var personajeX = 0;
 var personajeY = 5;
 
-var momiaX = 14;
+var momiaX = 13;
 var momiaY = 4;
 
-mapa =[[1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-[1,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+mapa =[[9,9,9,9,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
+[9,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
+[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]];
 
 function dibujarMapa(){
 
@@ -51,15 +51,17 @@ function dibujarMapa(){
       }
       else if (mapa[i][j]==7){
         newDiv.classList.add("huellasDerecha");
+      }else if (mapa[i][j]==9){
+        newDiv.classList.add("muro");
       }
       document.querySelector(".mapa").appendChild(newDiv);
     }
   }
-  
+
 }
 function listo(){
   dibujarMapa();
-  setInterval(moverMomia,1000);
+  setInterval(moverMomia,500);
   document.addEventListener('keydown', capturarMovimiento);
 
 }
@@ -73,7 +75,7 @@ window.onload=function(){
 
 function moverAbajo(){
   console.log("Tecla abajo");
-  if (mapa[personajeX+1][personajeY] != 1) {
+  if (mapa[personajeX+1][personajeY] != 1 &&  mapa[personajeX+1][personajeY] != 9) {
     /* El número 5 pertenece a las huellasAbajo que deja el personaje */
     mapa[personajeX][personajeY]=5;
     personajeX++;
@@ -86,7 +88,7 @@ function moverAbajo(){
 
 function moverArriba(){
   console.log("Tecla arriba");
-  if (mapa[personajeX-1][personajeY] != 1) {
+  if (mapa[personajeX-1][personajeY] != 1 && mapa[personajeX-1][personajeY] != 9) {
     /* El número 4 pertenece a las huellasArriba que deja el personaje */
     mapa[personajeX][personajeY]=4;
     personajeX--;
@@ -97,7 +99,7 @@ function moverArriba(){
 }
 function moverIzquierda(){
   console.log("Tecla izquierda");
-  if (mapa[personajeX][personajeY-1] != 1) {
+  if (mapa[personajeX][personajeY-1] != 1 && mapa[personajeX][personajeY-1] != 9) {
     /* El número 6 pertenece a las huellasIzquierda que deja el personaje */
     mapa[personajeX][personajeY]=6;
     personajeY--;
@@ -109,7 +111,7 @@ function moverIzquierda(){
 function moverDerecha(){
   console.log("Tecla derecha");
   // La condicion IF es para que cuando vea un 1 en el mapa( bloque) no avance
-  if (mapa[personajeX][personajeY+1] != 1) {
+  if (mapa[personajeX][personajeY+1] != 1 && mapa[personajeX][personajeY+1] != 9) {
     console.log(personajeY);
     /* El número 7 pertenece a las huellasDerecha que deja el personaje */
     mapa[personajeX][personajeY]=7;
@@ -153,7 +155,7 @@ function moverMomia() {
 
     // Caso hacia arriba
     case 0:
-    if (mapa[momiaX-1][momiaY] != 1) {
+    if (mapa[momiaX-1][momiaY] != 1 && mapa[momiaX-1][momiaY] != 9) {
       mapa[momiaX][momiaY]=0;
       momiaX--;
       mapa[momiaX][momiaY]=3;
@@ -163,7 +165,7 @@ function moverMomia() {
 
     // Caso hacia abajo
     case 1:
-    if (mapa[momiaX+1][momiaY] != 1) {
+    if (mapa[momiaX+1][momiaY] != 1 && mapa[momiaX+1][momiaY] != 9) {
       mapa[momiaX][momiaY]=0;
       momiaX++;
       mapa[momiaX][momiaY]=3;
@@ -173,7 +175,7 @@ function moverMomia() {
 
     // Caso hacia la izquierda
     case 2:
-    if (mapa[momiaX][momiaY-1] != 1) {
+    if (mapa[momiaX][momiaY-1] != 1 && mapa[momiaX][momiaY-1] != 9) {
       mapa[momiaX][momiaY]=0;
       momiaY--;
       mapa[momiaX][momiaY]=3;
@@ -183,7 +185,7 @@ function moverMomia() {
 
     // Caso hacia la derecha
     case 3:
-    if (mapa[momiaX][momiaY+1] != 1) {
+    if (mapa[momiaX][momiaY+1] != 1 && mapa[momiaX][momiaY+1] != 9) {
       mapa[momiaX][momiaY]=0;
       momiaY++;
       mapa[momiaX][momiaY]=3;
@@ -192,5 +194,9 @@ function moverMomia() {
     break;
 
   }
-
 }
+ /*  FUNCIÓN PARA CAPTURAR LOS PILARES RODEADOS */
+
+ function pilarRodeado() {
+
+ }

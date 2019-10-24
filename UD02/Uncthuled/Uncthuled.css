@@ -8,12 +8,19 @@
     grid-template-rows: repeat(15,1fr);
 }
 
-/* CAMINO Y PILARES */
+/* CAMINO, PILARES Y MURO */
 
 .camino{
     width: 50px;
     height: 50px;
     background-color:yellow;
+}
+
+.muro{
+    width:50px;
+    height:50px;
+    background-image: url("mantel.jpg");
+    background-color:black;
 }
 
 .pilar{
