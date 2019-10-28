@@ -74,8 +74,9 @@ window.onload=function(){
 /* FUNCIÓN PARA CAPTURAR EL MOVIMIENTO DE LAS TECLAS */
 
 function moverAbajo(){
-  console.log("Tecla abajo");
+  //console.log("Tecla abajo");
   if (mapa[personajeX+1][personajeY] != 1 &&  mapa[personajeX+1][personajeY] != 9) {
+    console.log('La posicion X es: ' , personajeX);
     /* El número 5 pertenece a las huellasAbajo que deja el personaje */
     mapa[personajeX][personajeY]=5;
     personajeX++;
@@ -87,8 +88,9 @@ function moverAbajo(){
 }
 
 function moverArriba(){
-  console.log("Tecla arriba");
+  //console.log("Tecla arriba");
   if (mapa[personajeX-1][personajeY] != 1 && mapa[personajeX-1][personajeY] != 9) {
+    console.log('La posicion X es: ' , personajeX);
     /* El número 4 pertenece a las huellasArriba que deja el personaje */
     mapa[personajeX][personajeY]=4;
     personajeX--;
@@ -98,8 +100,9 @@ function moverArriba(){
 
 }
 function moverIzquierda(){
-  console.log("Tecla izquierda");
+  //console.log("Tecla izquierda");
   if (mapa[personajeX][personajeY-1] != 1 && mapa[personajeX][personajeY-1] != 9) {
+    console.log('La posicion Y es: ' , personajeY);
     /* El número 6 pertenece a las huellasIzquierda que deja el personaje */
     mapa[personajeX][personajeY]=6;
     personajeY--;
@@ -109,10 +112,10 @@ function moverIzquierda(){
 
 }
 function moverDerecha(){
-  console.log("Tecla derecha");
+  //console.log("Tecla derecha");
   // La condicion IF es para que cuando vea un 1 en el mapa( bloque) no avance
   if (mapa[personajeX][personajeY+1] != 1 && mapa[personajeX][personajeY+1] != 9) {
-    console.log(personajeY);
+    console.log('La posicion Y es: ' , personajeY);
     /* El número 7 pertenece a las huellasDerecha que deja el personaje */
     mapa[personajeX][personajeY]=7;
     personajeY++;
@@ -147,7 +150,7 @@ function capturarMovimiento(n){
   }
 }
 
-/* FUNCIÓN PARA MOVER LA MOMIA */
+/* FUNCIÓN PARA MOVER LA MOMIA RANDOM */
 
 function moverMomia() {
   var numeroRandom = Math.floor(Math.random() * 3);
@@ -198,5 +201,9 @@ function moverMomia() {
  /*  FUNCIÓN PARA CAPTURAR LOS PILARES RODEADOS */
 
  function pilarRodeado() {
-
+   var X = 2;
+   var Y = 2;  
+for (var i = 0; i < array.length; i++) {
+  array[i]
+}
  }
