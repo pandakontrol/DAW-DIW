@@ -36,19 +36,29 @@
 }
 
 .salida1 {
-  background-color: blue;
+
+  background-image: url("ketchup.jpg");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
 }
 
 .salida2 {
-  background-color: lightblue;
+  background-image: url("mostaza.jpg");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
 }
 
 .matarMomia {
-  background-color: white;
+  background-image: url("lechuga.jpg");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+
 }
 
-.momia {
-  background-color: black;
+.momia{
+  background-image: url("gordi.gif");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;;
 }
 
 /* PERSONAJES */
