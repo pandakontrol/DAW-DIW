@@ -6,7 +6,7 @@ var personajeY = 5;
 
 var momiaX = 13;
 var momiaY = 4;
-
+var lista =[1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1]
 mapa =[[9,9,9,9,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 [9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
 [9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
@@ -53,6 +53,16 @@ function dibujarMapa(){
         newDiv.classList.add("huellasDerecha");
       }else if (mapa[i][j]==9){
         newDiv.classList.add("muro");
+      }else if (mapa[i][j]==10){
+        newDiv.classList.add("nada");
+      }else if (mapa[i][j]==11){
+        newDiv.classList.add("matarMomia");
+      }else if (mapa[i][j]==12){
+        newDiv.classList.add("salida1");
+      }else if (mapa[i][j]==13){
+        newDiv.classList.add("salida2");
+      }else if (mapa[i][j]==14){
+        newDiv.classList.add("momias");
       }
       document.querySelector(".mapa").appendChild(newDiv);
     }
@@ -76,7 +86,7 @@ window.onload=function(){
 function moverAbajo(){
   //console.log("Tecla abajo");
   if (mapa[personajeX+1][personajeY] != 1 &&  mapa[personajeX+1][personajeY] != 9) {
-    console.log('La posicion X es: ' , personajeX);
+    //console.log('La posicion X es: ' , personajeX);
     /* El número 5 pertenece a las huellasAbajo que deja el personaje */
     mapa[personajeX][personajeY]=5;
     personajeX++;
@@ -90,7 +100,7 @@ function moverAbajo(){
 function moverArriba(){
   //console.log("Tecla arriba");
   if (mapa[personajeX-1][personajeY] != 1 && mapa[personajeX-1][personajeY] != 9) {
-    console.log('La posicion X es: ' , personajeX);
+    //console.log('La posicion X es: ' , personajeX);
     /* El número 4 pertenece a las huellasArriba que deja el personaje */
     mapa[personajeX][personajeY]=4;
     personajeX--;
@@ -102,7 +112,7 @@ function moverArriba(){
 function moverIzquierda(){
   //console.log("Tecla izquierda");
   if (mapa[personajeX][personajeY-1] != 1 && mapa[personajeX][personajeY-1] != 9) {
-    console.log('La posicion Y es: ' , personajeY);
+    //  console.log('La posicion Y es: ' , personajeY);
     /* El número 6 pertenece a las huellasIzquierda que deja el personaje */
     mapa[personajeX][personajeY]=6;
     personajeY--;
@@ -115,7 +125,7 @@ function moverDerecha(){
   //console.log("Tecla derecha");
   // La condicion IF es para que cuando vea un 1 en el mapa( bloque) no avance
   if (mapa[personajeX][personajeY+1] != 1 && mapa[personajeX][personajeY+1] != 9) {
-    console.log('La posicion Y es: ' , personajeY);
+    //console.log('La posicion Y es: ' , personajeY);
     /* El número 7 pertenece a las huellasDerecha que deja el personaje */
     mapa[personajeX][personajeY]=7;
     personajeY++;
@@ -198,12 +208,136 @@ function moverMomia() {
 
   }
 }
- /*  FUNCIÓN PARA CAPTURAR LOS PILARES RODEADOS */
+/*  FUNCIÓN PARA CAPTURAR LOS PILARES RODEADOS */
 
- function pilarRodeado() {
-   var X = 2;
-   var Y = 2;  
-for (var i = 0; i < array.length; i++) {
-  array[i]
+function pilarRodeado() {
+  var X = 2;
+  var Y = 2;
+
+  /* Lo que hace este for es comprobar la primera posicion de cada pilar,
+  y el segundo for calcula la primera posicion del pilar hacia abajo. */
+
+  for (var i = 1; i < 6; i++) {
+    X=2;
+    for (var j = 1; i < 5; j++) {
+      comprobar(X,Y);
+      X+=3;
+    }
+    Y+=4;
+  }
+
 }
- }
+
+function comprobar(X,Y) {
+  var cont = 0;
+  comprobarX= X;
+  comprobarY= Y;
+  /* Lista objetos
+  10. Nada
+  11. Matar momia
+  12. Salida1
+  13. Salida2
+  14. Momia */
+
+  if((mapa[comprobarX][comprobarY]= 10) || (mapa[comprobarX][comprobarY]=11) ||
+  (mapa[comprobarX][comprobarY]= 12) || (mapa[comprobarX][comprobarY]= 13) ||
+  (mapa[comprobarX][comprobarY]=14)){
+    console.log("Ya esta completo" + comprobarX + " "+ comprobarY);
+
+
+  }else{
+    /* Posiciones de pisado son 4, 5, 6 y 7. */
+
+    if((mapa[comprobarX-1][comprobarY-1]= 4) && (mapa[comprobarX-1][comprobarY-1]= 5) && (mapa[comprobarX-1][comprobarY-1]= 6) && (mapa[comprobarX-1][comprobarY-1]= 7) ){
+      cont++;
+    }
+    if((mapa[comprobarX-1][comprobarY]= 4) && (mapa[comprobarX-1][comprobarY]= 5) && (mapa[comprobarX-1][comprobarY]= 6) && (mapa[comprobarX-1][comprobarY]= 7)){
+      cont++;
+    }
+    if((mapa[comprobarX-1][comprobarY+1] = 4) && (mapa[comprobarX-1][comprobarY+1] = 5) && (mapa[comprobarX-1][comprobarY+1] = 6) && (mapa[comprobarX-1][comprobarY+1] = 7)){
+      cont++;
+    }
+    if((mapa[comprobarX-1][comprobarY+2]= 4) && (mapa[comprobarX-1][comprobarY+2]= 5) && (mapa[comprobarX-1][comprobarY+2]= 6) && (mapa[comprobarX-1][comprobarY+2]= 7)){
+      cont++;
+    }
+    if((mapa[comprobarX-1][comprobarY+3] = 4) && (mapa[comprobarX-1][comprobarY+3] = 5) && (mapa[comprobarX-1][comprobarY+3] = 6) && (mapa[comprobarX-1][comprobarY+3] = 7)){
+      cont++;
+    }
+    if((mapa[comprobarX][comprobarY-1] = 4) && (mapa[comprobarX][comprobarY-1] = 5) && (mapa[comprobarX][comprobarY-1] = 6) && (mapa[comprobarX][comprobarY-1] = 7)){
+      cont++;
+    }
+    if((mapa[comprobarX][comprobarY+3] = 4) && (mapa[comprobarX][comprobarY+3] = 5) && (mapa[comprobarX][comprobarY+3] = 6) && (mapa[comprobarX][comprobarY+3] = 7)){
+      cont++;
+    }
+    if((mapa[comprobarX+1][comprobarY-1] = 4) && (mapa[comprobarX+1][comprobarY-1] = 5) && (mapa[comprobarX+1][comprobarY-1] = 6) && (mapa[comprobarX+1][comprobarY-1] = 7)){
+      cont++;
+    }
+    if((mapa[comprobarX+1][comprobarY+3]= 4) && (mapa[comprobarX+1][comprobarY+3]= 5) && (mapa[comprobarX+1][comprobarY+3]= 6) && (mapa[comprobarX+1][comprobarY+3]= 7)){
+      cont++;
+    }
+    if((mapa[comprobarX+2][comprobarY-1] = 4) && (mapa[comprobarX+2][comprobarY-1] = 5) && (mapa[comprobarX+2][comprobarY-1] = 6) && (mapa[comprobarX+2][comprobarY-1] = 7)){
+      cont++;
+    }
+    if((mapa[comprobarX+2][comprobarY]= 4) && (mapa[comprobarX+2][comprobarY]= 5) && (mapa[comprobarX+2][comprobarY]= 6) && (mapa[comprobarX+2][comprobarY]= 7)){
+      cont++
+    }
+    if((mapa[comprobarX+2][comprobarY+1]= 4) && (mapa[comprobarX+2][comprobarY+1]= 5) && (mapa[comprobarX+2][comprobarY+1]= 6) && (mapa[comprobarX+2][comprobarY+1]= 7)){
+      cont++
+    }
+    if((mapa[comprobarX+2][comprobarY+2] = 4) && (mapa[comprobarX+2][comprobarY+2] = 5) && (mapa[comprobarX+2][comprobarY+2] = 6) && (mapa[comprobarX+2][comprobarY+2] = 7)){
+      cont++
+    }
+    if((mapa[comprobarX+2][comprobarY+3] = 4) && (mapa[comprobarX+2][comprobarY+3] = 5) && (mapa[comprobarX+2][comprobarY+3] = 6) && (mapa[comprobarX+2][comprobarY+3] = 7)){
+      cont++
+    }
+
+
+    comprobarX = X;
+    comprobarY = Y;
+    if (cont == 14) {
+      //1 = Nada
+      //2 = matarmomia
+      //3 = sullivan
+      //4 = chica
+      //5 = randal
+      //var lista =[1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1]
+      var random = Math.floor(Math.random()*lista.length);
+      var numero= lista[random];
+      var id;
+      switch (numero) {
+        case 1:
+        var id = 10;
+        break;
+        case 2:
+        var id = 11;
+        break;
+        case 3:
+        var id = 12;
+        break;
+        case 4:
+        var id = 13;
+        break;
+        case 5:
+        var id = 14;
+        break;
+
+      }
+
+      lista.splice(random, 1);
+
+      for (let i = 1; i < 3; i++) {
+        comprobarY = Y;
+        for (let j = 1; j < 4; j++) {
+
+
+          mapa[comprobarX][comprobarY]=id;
+
+          comprobarY++;
+          dibujarMapa();
+        }
+        comprobarX++;
+
+      }
+    }
+  }
+}

@@ -29,6 +29,27 @@
     background-image: url("mantel.jpg");
     background-color:black;
 }
+/* PILARES UNA VEZ RODEADOS */
+
+.nada {
+  background-color: lightgreen;
+}
+
+.salida1 {
+  background-color: blue;
+}
+
+.salida2 {
+  background-color: lightblue;
+}
+
+.matarMomia {
+  background-color: white;
+}
+
+.momia {
+  background-color: black;
+}
 
 /* PERSONAJES */
 
