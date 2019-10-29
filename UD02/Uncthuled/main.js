@@ -6,7 +6,7 @@ var personajeY = 5;
 
 var momiaX = 13;
 var momiaY = 4;
-var lista =[1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1]
+var lista =[1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1];
 mapa =[[9,9,9,9,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 [9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
 [9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
@@ -91,6 +91,7 @@ function moverAbajo(){
     mapa[personajeX][personajeY]=5;
     personajeX++;
     mapa[personajeX][personajeY]=2;
+    pilarRodeado();
     dibujarMapa();
 
   }
@@ -105,6 +106,7 @@ function moverArriba(){
     mapa[personajeX][personajeY]=4;
     personajeX--;
     mapa[personajeX][personajeY]=2;
+    pilarRodeado();
     dibujarMapa();
   }
 
@@ -117,6 +119,8 @@ function moverIzquierda(){
     mapa[personajeX][personajeY]=6;
     personajeY--;
     mapa[personajeX][personajeY]=2;
+
+    pilarRodeado();
     dibujarMapa();
   }
 
@@ -130,6 +134,7 @@ function moverDerecha(){
     mapa[personajeX][personajeY]=7;
     personajeY++;
     mapa[personajeX][personajeY]=2;
+    pilarRodeado();
     dibujarMapa();
   }
 
@@ -221,6 +226,7 @@ function pilarRodeado() {
     X=2;
     for (var j = 1; i < 5; j++) {
       comprobar(X,Y);
+
       X+=3;
     }
     Y+=4;
@@ -239,55 +245,54 @@ function comprobar(X,Y) {
   13. Salida2
   14. Momia */
 
-  if((mapa[comprobarX][comprobarY]= 10) || (mapa[comprobarX][comprobarY]=11) ||
-  (mapa[comprobarX][comprobarY]= 12) || (mapa[comprobarX][comprobarY]= 13) ||
-  (mapa[comprobarX][comprobarY]=14)){
+  if(mapa[comprobarX][comprobarY] > 9 ){
     console.log("Ya esta completo" + comprobarX + " "+ comprobarY);
 
 
   }else{
     /* Posiciones de pisado son 4, 5, 6 y 7. */
 
-    if((mapa[comprobarX-1][comprobarY-1]= 4) && (mapa[comprobarX-1][comprobarY-1]= 5) && (mapa[comprobarX-1][comprobarY-1]= 6) && (mapa[comprobarX-1][comprobarY-1]= 7) ){
+    if((mapa[comprobarX-1][comprobarY-1]= 4) || (mapa[comprobarX-1][comprobarY-1]= 5) || (mapa[comprobarX-1][comprobarY-1]= 6) || (mapa[comprobarX-1][comprobarY-1]= 7) ){
+      cont++;
+
+    }
+    if((mapa[comprobarX-1][comprobarY]= 4) || (mapa[comprobarX-1][comprobarY]= 5) || (mapa[comprobarX-1][comprobarY]= 6) || (mapa[comprobarX-1][comprobarY]= 7)){
       cont++;
     }
-    if((mapa[comprobarX-1][comprobarY]= 4) && (mapa[comprobarX-1][comprobarY]= 5) && (mapa[comprobarX-1][comprobarY]= 6) && (mapa[comprobarX-1][comprobarY]= 7)){
+    if((mapa[comprobarX-1][comprobarY+1] = 4) || (mapa[comprobarX-1][comprobarY+1] = 5) || (mapa[comprobarX-1][comprobarY+1] = 6) || (mapa[comprobarX-1][comprobarY+1] = 7)){
       cont++;
     }
-    if((mapa[comprobarX-1][comprobarY+1] = 4) && (mapa[comprobarX-1][comprobarY+1] = 5) && (mapa[comprobarX-1][comprobarY+1] = 6) && (mapa[comprobarX-1][comprobarY+1] = 7)){
+    if((mapa[comprobarX-1][comprobarY+2]= 4) || (mapa[comprobarX-1][comprobarY+2]= 5) || (mapa[comprobarX-1][comprobarY+2]= 6) || (mapa[comprobarX-1][comprobarY+2]= 7)){
       cont++;
     }
-    if((mapa[comprobarX-1][comprobarY+2]= 4) && (mapa[comprobarX-1][comprobarY+2]= 5) && (mapa[comprobarX-1][comprobarY+2]= 6) && (mapa[comprobarX-1][comprobarY+2]= 7)){
+    if((mapa[comprobarX-1][comprobarY+3] = 4) || (mapa[comprobarX-1][comprobarY+3] = 5) || (mapa[comprobarX-1][comprobarY+3] = 6) || (mapa[comprobarX-1][comprobarY+3] = 7)){
       cont++;
     }
-    if((mapa[comprobarX-1][comprobarY+3] = 4) && (mapa[comprobarX-1][comprobarY+3] = 5) && (mapa[comprobarX-1][comprobarY+3] = 6) && (mapa[comprobarX-1][comprobarY+3] = 7)){
+    if((mapa[comprobarX][comprobarY-1] = 4) || (mapa[comprobarX][comprobarY-1] = 5) || (mapa[comprobarX][comprobarY-1] = 6) || (mapa[comprobarX][comprobarY-1] = 7)){
       cont++;
     }
-    if((mapa[comprobarX][comprobarY-1] = 4) && (mapa[comprobarX][comprobarY-1] = 5) && (mapa[comprobarX][comprobarY-1] = 6) && (mapa[comprobarX][comprobarY-1] = 7)){
+    if((mapa[comprobarX][comprobarY+3] = 4) || (mapa[comprobarX][comprobarY+3] = 5) || (mapa[comprobarX][comprobarY+3] = 6) || (mapa[comprobarX][comprobarY+3] = 7)){
       cont++;
     }
-    if((mapa[comprobarX][comprobarY+3] = 4) && (mapa[comprobarX][comprobarY+3] = 5) && (mapa[comprobarX][comprobarY+3] = 6) && (mapa[comprobarX][comprobarY+3] = 7)){
+    if((mapa[comprobarX+1][comprobarY-1] = 4) || (mapa[comprobarX+1][comprobarY-1] = 5) || (mapa[comprobarX+1][comprobarY-1] = 6) || (mapa[comprobarX+1][comprobarY-1] = 7)){
       cont++;
     }
-    if((mapa[comprobarX+1][comprobarY-1] = 4) && (mapa[comprobarX+1][comprobarY-1] = 5) && (mapa[comprobarX+1][comprobarY-1] = 6) && (mapa[comprobarX+1][comprobarY-1] = 7)){
+    if((mapa[comprobarX+1][comprobarY+3]= 4) || (mapa[comprobarX+1][comprobarY+3]= 5) || (mapa[comprobarX+1][comprobarY+3]= 6) || (mapa[comprobarX+1][comprobarY+3]= 7)){
       cont++;
     }
-    if((mapa[comprobarX+1][comprobarY+3]= 4) && (mapa[comprobarX+1][comprobarY+3]= 5) && (mapa[comprobarX+1][comprobarY+3]= 6) && (mapa[comprobarX+1][comprobarY+3]= 7)){
+    if((mapa[comprobarX+2][comprobarY-1] = 4) || (mapa[comprobarX+2][comprobarY-1] = 5) || (mapa[comprobarX+2][comprobarY-1] = 6) || (mapa[comprobarX+2][comprobarY-1] = 7)){
       cont++;
     }
-    if((mapa[comprobarX+2][comprobarY-1] = 4) && (mapa[comprobarX+2][comprobarY-1] = 5) && (mapa[comprobarX+2][comprobarY-1] = 6) && (mapa[comprobarX+2][comprobarY-1] = 7)){
-      cont++;
-    }
-    if((mapa[comprobarX+2][comprobarY]= 4) && (mapa[comprobarX+2][comprobarY]= 5) && (mapa[comprobarX+2][comprobarY]= 6) && (mapa[comprobarX+2][comprobarY]= 7)){
+    if((mapa[comprobarX+2][comprobarY]= 4) || (mapa[comprobarX+2][comprobarY]= 5) || (mapa[comprobarX+2][comprobarY]= 6) || (mapa[comprobarX+2][comprobarY]= 7)){
       cont++
     }
-    if((mapa[comprobarX+2][comprobarY+1]= 4) && (mapa[comprobarX+2][comprobarY+1]= 5) && (mapa[comprobarX+2][comprobarY+1]= 6) && (mapa[comprobarX+2][comprobarY+1]= 7)){
+    if((mapa[comprobarX+2][comprobarY+1]= 4) || (mapa[comprobarX+2][comprobarY+1]= 5) || (mapa[comprobarX+2][comprobarY+1]= 6) || (mapa[comprobarX+2][comprobarY+1]= 7)){
       cont++
     }
-    if((mapa[comprobarX+2][comprobarY+2] = 4) && (mapa[comprobarX+2][comprobarY+2] = 5) && (mapa[comprobarX+2][comprobarY+2] = 6) && (mapa[comprobarX+2][comprobarY+2] = 7)){
+    if((mapa[comprobarX+2][comprobarY+2] = 4) || (mapa[comprobarX+2][comprobarY+2] = 5) || (mapa[comprobarX+2][comprobarY+2] = 6) || (mapa[comprobarX+2][comprobarY+2] = 7)){
       cont++
     }
-    if((mapa[comprobarX+2][comprobarY+3] = 4) && (mapa[comprobarX+2][comprobarY+3] = 5) && (mapa[comprobarX+2][comprobarY+3] = 6) && (mapa[comprobarX+2][comprobarY+3] = 7)){
+    if((mapa[comprobarX+2][comprobarY+3] = 4) || (mapa[comprobarX+2][comprobarY+3] = 5) || (mapa[comprobarX+2][comprobarY+3] = 6) || (mapa[comprobarX+2][comprobarY+3] = 7)){
       cont++
     }
 
@@ -295,11 +300,6 @@ function comprobar(X,Y) {
     comprobarX = X;
     comprobarY = Y;
     if (cont == 14) {
-      //1 = Nada
-      //2 = matarmomia
-      //3 = sullivan
-      //4 = chica
-      //5 = randal
       //var lista =[1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1]
       var random = Math.floor(Math.random()*lista.length);
       var numero= lista[random];
@@ -331,9 +331,9 @@ function comprobar(X,Y) {
 
 
           mapa[comprobarX][comprobarY]=id;
-
-          comprobarY++;
           dibujarMapa();
+          comprobarY++;
+
         }
         comprobarX++;
 
