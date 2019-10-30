@@ -1,9 +1,9 @@
 /* UNCTHULED GAME! */
 
-
+var contadorSalida = 0;
 var personajeX = 0;
 var personajeY = 5;
-
+var vidas = 2;
 var momiaX = 13;
 var momiaY = 4;
 var lista = [1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1];
@@ -265,21 +265,27 @@ function comprobar(X,Y) {
     }
     if((mapa[comprobarX-1][comprobarY]== 4) || (mapa[comprobarX-1][comprobarY]== 5) || (mapa[comprobarX-1][comprobarY]== 6) || (mapa[comprobarX-1][comprobarY]== 7)){
       cont++;
+
     }
     if((mapa[comprobarX-1][comprobarY+1] == 4) || (mapa[comprobarX-1][comprobarY+1] == 5) || (mapa[comprobarX-1][comprobarY+1] == 6) || (mapa[comprobarX-1][comprobarY+1] == 7)){
       cont++;
+
     }
     if((mapa[comprobarX-1][comprobarY+2]== 4) || (mapa[comprobarX-1][comprobarY+2]== 5) || (mapa[comprobarX-1][comprobarY+2]== 6) || (mapa[comprobarX-1][comprobarY+2]== 7)){
       cont++;
+
     }
     if((mapa[comprobarX-1][comprobarY+3] == 4) || (mapa[comprobarX-1][comprobarY+3] == 5) || (mapa[comprobarX-1][comprobarY+3] == 6) || (mapa[comprobarX-1][comprobarY+3] == 7)){
       cont++;
+
     }
     if((mapa[comprobarX][comprobarY-1] == 4) || (mapa[comprobarX][comprobarY-1] == 5) || (mapa[comprobarX][comprobarY-1] == 6) || (mapa[comprobarX][comprobarY-1] == 7)){
       cont++;
+
     }
     if((mapa[comprobarX][comprobarY+3] == 4) || (mapa[comprobarX][comprobarY+3] == 5) || (mapa[comprobarX][comprobarY+3] == 6) || (mapa[comprobarX][comprobarY+3] == 7)){
       cont++;
+
     }
     if((mapa[comprobarX+1][comprobarY-1] == 4) || (mapa[comprobarX+1][comprobarY-1] == 5) || (mapa[comprobarX+1][comprobarY-1] == 6) || (mapa[comprobarX+1][comprobarY-1] == 7)){
       cont++;
@@ -306,7 +312,8 @@ function comprobar(X,Y) {
 
     comprobarX = X;
     comprobarY = Y;
-
+    var ketchup = false;
+    var mostaza = false;
     /* En caso de que este rodeado hacemos un random para que pinte aleatoriamente cada pilar. */
 
     if (cont == 14) {
@@ -314,7 +321,9 @@ function comprobar(X,Y) {
       var random = Math.floor(Math.random()*lista.length);
       var numero= lista[random];
       var id;
-      switch (numero) {
+
+      console.log(contadorSalida);
+      switch (numero){
         case 1:
         var id = 10;
         break;
@@ -323,16 +332,22 @@ function comprobar(X,Y) {
         break;
         case 3:
         var id = 12;
+        contadorSalida++;
         break;
         case 4:
         var id = 13;
+        contadorSalida++;
         break;
         case 5:
         var id = 14;
         break;
 
       }
-      
+      if (contadorSalida == 2) {
+        alert("puedes salir ostia")
+      }
+
+
       lista.splice(random, 1);
 
       for (let i = 1; i < 3; i++) {
@@ -352,12 +367,17 @@ function comprobar(X,Y) {
 /* Funcion que detecta que la momia te mata y te reduce las vidas */
 
 function matarMomia(){
-  var vidas = 1;
+
 
   if (mapa[momiaX][momiaY] == mapa[personajeX][personajeY]) {
-    vidas --;
-    alert("Te has quedado sin vidas! Tienes actualmente = " + " " + vidas)
-    setTimeout(recargar,500);
+    vidas--;
+  console.log(vidas);
+
+    if (vidas == 0) {
+      alert("Te has quedado sin vidas! Tienes actualmente = " + " " + vidas)
+      setTimeout(recargar,200);
+    }
+
   }
 
 }
