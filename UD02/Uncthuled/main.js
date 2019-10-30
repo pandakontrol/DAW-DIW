@@ -322,7 +322,7 @@ function comprobar(X,Y) {
       var numero= lista[random];
       var id;
 
-      console.log(contadorSalida);
+      //console.log(contadorSalida);
       switch (numero){
         case 1:
         var id = 10;
@@ -344,7 +344,7 @@ function comprobar(X,Y) {
 
       }
       if (contadorSalida == 2) {
-        alert("puedes salir ostia")
+        alert("Puedes pasar de nivel")
       }
 
 
@@ -374,7 +374,7 @@ function matarMomia(){
   console.log(vidas);
 
     if (vidas == 0) {
-      alert("Te has quedado sin vidas! Tienes actualmente = " + " " + vidas)
+      alert("Te has quedado sin vidas!"")
       setTimeout(recargar,200);
     }
 
