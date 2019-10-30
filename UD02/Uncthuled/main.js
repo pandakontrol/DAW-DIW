@@ -6,7 +6,8 @@ var personajeY = 5;
 
 var momiaX = 13;
 var momiaY = 4;
-var lista =[1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1];
+var lista = [1,1,1,2,1,1,1,1,3,1,1,1,4,1,1,1,5,1,1,1];
+
 mapa =[[9,9,9,9,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 [9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
 [9,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,9],
@@ -93,6 +94,7 @@ function moverAbajo(){
     mapa[personajeX][personajeY]=2;
     pilarRodeado();
     dibujarMapa();
+    matarMomia();
 
   }
 
@@ -108,6 +110,7 @@ function moverArriba(){
     mapa[personajeX][personajeY]=2;
     pilarRodeado();
     dibujarMapa();
+    matarMomia();
   }
 
 }
@@ -122,6 +125,7 @@ function moverIzquierda(){
 
     pilarRodeado();
     dibujarMapa();
+    matarMomia();
   }
 
 }
@@ -136,6 +140,7 @@ function moverDerecha(){
     mapa[personajeX][personajeY]=2;
     pilarRodeado();
     dibujarMapa();
+    matarMomia();
   }
 
 }
@@ -178,6 +183,7 @@ function moverMomia() {
       momiaX--;
       mapa[momiaX][momiaY]=3;
       dibujarMapa();
+      matarMomia();
     }
     break;
 
@@ -188,6 +194,7 @@ function moverMomia() {
       momiaX++;
       mapa[momiaX][momiaY]=3;
       dibujarMapa();
+      matarMomia();
     }
     break;
 
@@ -198,6 +205,7 @@ function moverMomia() {
       momiaY--;
       mapa[momiaX][momiaY]=3;
       dibujarMapa();
+      matarMomia();
     }
     break;
 
@@ -208,6 +216,7 @@ function moverMomia() {
       momiaY++;
       mapa[momiaX][momiaY]=3;
       dibujarMapa();
+      matarMomia();
     }
     break;
 
@@ -246,8 +255,6 @@ function comprobar(X,Y) {
   14. Momia */
 
   if(mapa[comprobarX][comprobarY] > 9 ){
-    //console.log("Ya esta completo" + comprobarX + " "+ comprobarY);
-
 
   }else{
     /* Posiciones de pisado son 4, 5, 6 y 7. */
@@ -325,7 +332,7 @@ function comprobar(X,Y) {
         break;
 
       }
-
+      
       lista.splice(random, 1);
 
       for (let i = 1; i < 3; i++) {
@@ -340,4 +347,21 @@ function comprobar(X,Y) {
       }
     }
   }
+}
+
+/* Funcion que detecta que la momia te mata y te reduce las vidas */
+
+function matarMomia(){
+  var vidas = 1;
+
+  if (mapa[momiaX][momiaY] == mapa[personajeX][personajeY]) {
+    vidas --;
+    alert("Te has quedado sin vidas! Tienes actualmente = " + " " + vidas)
+    setTimeout(recargar,500);
+  }
+
+}
+
+function recargar(){
+  location.reload();
 }
