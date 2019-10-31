@@ -374,7 +374,7 @@ function matarMomia(){
   console.log(vidas);
 
     if (vidas == 0) {
-      alert("Te has quedado sin vidas!"")
+      alert("Te has quedado sin vidas!")
       setTimeout(recargar,200);
     }
 
