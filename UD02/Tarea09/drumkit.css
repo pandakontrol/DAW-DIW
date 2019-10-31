@@ -1,0 +1,27 @@
+/* JINX DRUMKIT! */
+
+body{
+
+  background-image: url("jinx.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.keys{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(4,10em);
+  grid-column-gap: 20px;
+
+
+}
+
+.key{
+  border: 2px solid black;
+}
+
+.kbd{
+  color: yellow;
+}
