@@ -40,10 +40,11 @@ kbd {
   text-transform: uppercase;
   color: yellow;
   font-weight: bold;
+
 }
 /* Una vez le apliquemos el JS haremos que ejecutre esta transicion */
 .transition{
-  transition: 0.1s;
+  transition: 0.4s;
   transform: scale(1.1);
   border-color: yellow;
 
