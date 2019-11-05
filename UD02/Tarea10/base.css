@@ -36,5 +36,5 @@ transition: transform ease-in-out 5s;
 }
 
 .transition{
-  transform:translateX(500px);
+  transform:translateX(1100px);
 }

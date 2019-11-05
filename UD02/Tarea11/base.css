@@ -16,25 +16,24 @@ button{
 }
 
 .linear{
-transition: transform linear 5s;
+transition: transform cubic-bezier(0.250, 0.250, 0.750, 0.750) 5s;
 }
 
 .ease{
-transition: transform ease 5s;
+transition: transform cubic-bezier(0.250, 0.100, 0.250, 1.000) 5s;
 }
-
 .ease-in{
-transition: transform ease-in 5s;
+transition: transform cubic-bezier(0.420, 0.000, 1.000, 1.000) 5s;
 }
 
 .ease-out{
-transition: transform ease-out 5s;
+transition: transform cubic-bezier(0.000, 0.000, 0.580, 1.000) 5s;
 }
 
 .ease-in-out{
-transition: transform ease-in-out 5s;
+transition: transform cubic-bezier(0.420, 0.000, 0.580, 1.000) 5s;
 }
 
 .transition{
-  transform:translateX(500px);
+  transform:translateX(1100px);
 }
