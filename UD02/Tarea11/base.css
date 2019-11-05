@@ -1,0 +1,40 @@
+
+section{
+  border: 2px dotted;
+  border-radius: 10px;
+}
+
+.caja{
+  content: url('cthulhu.svg');
+  width:50px;
+  height:50px;
+}
+
+button{
+  background-color: grey;
+  border-radius: 2px;
+}
+
+.linear{
+transition: transform linear 5s;
+}
+
+.ease{
+transition: transform ease 5s;
+}
+
+.ease-in{
+transition: transform ease-in 5s;
+}
+
+.ease-out{
+transition: transform ease-out 5s;
+}
+
+.ease-in-out{
+transition: transform ease-in-out 5s;
+}
+
+.transition{
+  transform:translateX(500px);
+}
