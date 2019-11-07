@@ -31,6 +31,8 @@ box{
     border:3px solid #AABBAA;
     height: 100px;
     width: 100px;
+    t
+    transform: translateX(110px);
 
 
 }
@@ -55,5 +57,5 @@ box{
 .ultimate:hover{
 
   transform:scale(1.1);
-    
+
 }
