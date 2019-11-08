@@ -12,12 +12,23 @@ function crearCaja(){
 
   let box = document.createElement('box');
   document.querySelector('container').appendChild(box);
-  box.addEventListener('click',evolucionar);
+  box.addEventListener('click',evolucion);
 
 
 }
 
-function evolucionar(){
+function evolucion(){
 this.classList.add('evoluciona');
+this.addEventListener('click',desevolucion);
+
+}
+
+function desevolucion(){
+  this.classList.replace('evoluciona','desevoluciona');
+
+}
+
+function ultimate(){
+
 
 }

@@ -31,8 +31,11 @@ box{
     border:3px solid #AABBAA;
     height: 100px;
     width: 100px;
-    t
+
+    transition: transform ease-in;
+    transition-duration: 2s;
     transform: translateX(110px);
+
 
 
 }
