@@ -10,11 +10,12 @@ function init() {
 /* Funcion que añade las cajas y llama añade un evento al hacer click */
 
 function crearCaja(){
-
+  contador= document.querySelectorAll('box').length;
   let box = document.createElement('box');
-  document.querySelector('container').appendChild(box);
-  box.addEventListener('click',evolucion);
-
+  if (contador < 20) {
+    document.querySelector('container').appendChild(box);
+    box.addEventListener('click',evolucion);
+  }
 
 }
 
@@ -25,13 +26,13 @@ this.classList.add('evoluciona');
 this.addEventListener('click', desevolucion);
 
 }
-
-
+/* Convierte el cuadrado en azul */
 
 function desevolucion(){
   this.classList.replace('evoluciona','desevoluciona');
   this.addEventListener('click',ultimate);
 }
+/* Evoluciona a cthulhu */
 
 function ultimate(){
   this.classList.replace('desevoluciona','ultimate');

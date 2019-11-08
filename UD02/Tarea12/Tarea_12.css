@@ -21,9 +21,8 @@ box{
     border:3px solid #AABBAA;
     height: 100px;
     width: 100px;
-
-
     border-radius: 10px;
+    transition-duration: 1s;
 }
 
 .evoluciona{
@@ -33,7 +32,7 @@ box{
     width: 100px;
     /* Transiciones */
     transition: transform ease-in;
-    transition-duration: 2s;
+    transition-duration: 1s;
     transform: translateX(110px);
 
 
@@ -47,7 +46,7 @@ box{
     width: 100px;
     /* Transiciones no hace falta poner el translateX */
     transition: transform ease-in;
-    transition-duration: 2s;
+    transition-duration: 1s;
 
 }
 
