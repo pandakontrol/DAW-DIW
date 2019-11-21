@@ -16,7 +16,7 @@ body{
     align-items:center;
     justify-content:center;
     height:100vh;
-    
+
     /*background-color:#323232;*/
     background-image:url("https://picsum.photos/1600/900");
     font-family: 'OuroborosRegular';
@@ -31,18 +31,33 @@ body{
 * CSS for items
 */
 
+h1{
+font-size: 30px;
+}
+content{
+  display: grid;
+  background-color: rgba(34, 38, 44, 0.8);
+  border: 2px solid;
+  border-radius: 10px;
+  height: 500px;
+  width: 700px;
+}
 items{
-
-    /* 
-     * Fragmentos perdidos 
+display: grid;
+justify-content: center;
+/*margin-left: 5em;
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
-    
+
 }
 
 item{
-    /* 
-     * Fragmentos perdidos 
+  display: grid;
+  justify-content: center;
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
@@ -52,25 +67,27 @@ item{
 */
 
 button{
-    
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
+font-family: 'OuroborosRegular';
+color:#ffffff;
+background-image: linear-gradient(to bottom right, violet,yellow);
+width: 300px;
+height: 50px;
+border-radius: 10px;
+
 }
 
 button:hover {
-    
-    /* 
-     * Fragmentos perdidos 
+transform: scale(1.02);
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
 
 button:active {
-    
-    /* 
-     * Fragmentos perdidos 
+
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
@@ -78,16 +95,20 @@ button:active {
 
 /*
 * CSS for steps
-* - Includes the opacity for the 
+* - Includes the opacity for the
 *   animation that makes this more
 *   dinamyc, but is only a simple
 *   GUI.
 */
 
 steps{
-   
-    /* 
-     * Fragmentos perdidos 
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(6,1fr);
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
@@ -99,16 +120,16 @@ steps{
 * with a transition.
 */
 steps * {
-    /* 
-     * Fragmentos perdidos 
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
 
 .estabaEscondido{
-   
-    /* 
-     * Fragmentos perdidos 
+
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
@@ -120,8 +141,8 @@ steps * {
 */
 progress{
 
-    /* 
-     * Fragmentos perdidos 
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
@@ -130,17 +151,16 @@ progress{
 
 finalmsg{
 
-    /* 
-     * Fragmentos perdidos 
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
 
 @keyframes neon {
- 
-    /* 
-     * Fragmentos perdidos 
+
+    /*
+     * Fragmentos perdidos
      * ^(;,;)^
      */
 }
-
