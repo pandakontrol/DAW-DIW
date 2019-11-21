@@ -16,8 +16,6 @@ FUNCIONES PERDIDAS
 
 function startMigration(){
 
-    // Fragmentos perdidos
-    // ^(;,;)^
 }
 
 function init(){

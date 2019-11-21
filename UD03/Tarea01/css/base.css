@@ -12,18 +12,18 @@ CSS Base for the Miskatonic Herald
 */
 
 body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
 
-    /*background-color:#323232;*/
-    background-image:url("https://picsum.photos/1600/900");
-    font-family: 'OuroborosRegular';
-    font-weight: normal;
-    font-style: normal;
-    margin: 0;
-    color:#ffffff;
+  /*background-color:#323232;*/
+  background-image:url("https://picsum.photos/1600/900");
+  font-family: 'OuroborosRegular';
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+  color:#ffffff;
 }
 
 
@@ -32,8 +32,9 @@ body{
 */
 
 h1{
-font-size: 30px;
+  font-size: 30px;
 }
+
 content{
   display: grid;
   background-color: rgba(34, 38, 44, 0.8);
@@ -42,24 +43,18 @@ content{
   height: 500px;
   width: 700px;
 }
+
 items{
-display: grid;
-justify-content: center;
-/*margin-left: 5em;
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+  display: grid;
+  justify-content: center;
+
 
 }
 
 item{
   display: grid;
   justify-content: center;
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+
 }
 
 /*
@@ -67,29 +62,25 @@ item{
 */
 
 button{
-font-family: 'OuroborosRegular';
-color:#ffffff;
-background-image: linear-gradient(to bottom right, violet,yellow);
-width: 300px;
-height: 50px;
-border-radius: 10px;
+  font-family: 'OuroborosRegular';
+  color:#ffffff;
+  background-image: linear-gradient(to bottom right, violet,yellow);
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  transition-duration: 1s;
 
 }
 
 button:hover {
-transform: scale(1.02);
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+  transform: scale(1.02);
+  background-image: linear-gradient(to bottom right, yellow,violet);
+  transition: 1s;
 }
 
 button:active {
 
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+
 }
 
 
@@ -102,15 +93,13 @@ button:active {
 */
 
 steps{
+  visibility: hidden;
   display: grid;
   justify-content: center;
   text-align: center;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(6,1fr);
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+
 }
 
 /*
@@ -120,18 +109,12 @@ steps{
 * with a transition.
 */
 steps * {
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+
 }
 
 .estabaEscondido{
+visibility: hidden;
 
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
 }
 
 
@@ -140,27 +123,33 @@ steps * {
 * CSS for ProgressBars
 */
 progress{
+  margin-left: 2em;
+  background-color: blue;
+  border-radius: 2px;
 
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+}
+
+::-webkit-progress-value{
+  background-color: blue;
+  border-radius: 2px;
+
 }
 
 
 
 finalmsg{
 
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+  -webkit-animation: neon 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon 1.5s ease-in-out infinite alternate;
+  animation: neon 1.5s ease-in-out infinite alternate;
+
 }
 
 @keyframes neon {
-
-    /*
-     * Fragmentos perdidos
-     * ^(;,;)^
-     */
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
 }
