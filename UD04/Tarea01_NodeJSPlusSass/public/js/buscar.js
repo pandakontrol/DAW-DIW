@@ -7,7 +7,7 @@
 
 // Algunos valores
 
-const fuentesUrl = "http://mapas.valencia.es/lanzadera/opendata/cia_fuentes/JSON";
+const fuentesUrl = "http://mapas.valencia.es/lanzadera/opendata/Hidrantes/JSON";
 
 // Esta es la funcion de filtrado para
 // obtener tan solo los elementos que cumplen
@@ -49,7 +49,7 @@ function buscar(){
 	resultado.forEach(fuente=>{
 	    // Creamos un <li>
 	    let calleli=document.createElement("li");
-	    calleli.innerHTML=fuente.properties.calle+" -- ["+fuente.geometry.coordinates+"]";
+	    calleli.innerHTML=fuente.properties.calle+ " -- Tipo de boca " + fuente.properties.bocas + " -- Estado : "+ fuente.properties.estado  +" -- ["+fuente.geometry.coordinates+"]";
 	    // Lo anyadimos
 	    listado.appendChild(calleli);
 	});
