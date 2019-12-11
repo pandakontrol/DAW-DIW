@@ -7,15 +7,15 @@
 
 // Algunos valores
 
-const fuentesUrl = "http://mapas.valencia.es/lanzadera/opendata/Hidrantes/JSON";
+const fallasUrl = "http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON";
 
 // Esta es la funcion de filtrado para
 // obtener tan solo los elementos que cumplen
 // una serie de requisitos.
 
 function filtroLetra(elemento){
-    let letra=document.querySelector(`input[name="calle"]`).value;
-    return elemento.properties.calle.startsWith(letra);
+    let letra=document.querySelector(`input[name="nombre"]`).value;
+    return elemento.properties.nombre.startsWith(letra);
 }
 
 
@@ -23,14 +23,14 @@ function filtroLetra(elemento){
 // se lanza cada vez que se realiza una insercion en
 // el texto del nombre.
 function toUpp(){
-    document.querySelector(`input[name="calle"]`).value=document.querySelector(`input[name="calle"]`).value.toUpperCase();
+    document.querySelector(`input[name="nombre"]`).value=document.querySelector(`input[name="nombre"]`).value.toUpperCase();
 }
 
 
 function buscar(){
 
     // Obtenemos el JSON que esta definido
-    const fetchPromesa = fetch(fuentesUrl);
+    const fetchPromesa = fetch(fallasUrl);
 
     // Cuando se resuelva la promesa
     fetchPromesa.then(response => {
@@ -46,12 +46,12 @@ function buscar(){
 	let listado=document.createElement("ul");
 
 	// Por cada uno de ellos
-	resultado.forEach(fuente=>{
+	resultado.forEach(falla=>{
 	    // Creamos un <li>
-	    let calleli=document.createElement("li");
-	    calleli.innerHTML=fuente.properties.calle+ " -- Tipo de boca " + fuente.properties.bocas + " -- Estado : "+ fuente.properties.estado  +" -- ["+fuente.geometry.coordinates+"]";
+	    let nombreli=document.createElement("li");
+	    nombreli.innerHTML= "<img src=" + falla.properties.boceto + "><br>" + falla.properties.nombre + " -- ["+falla.geometry.coordinates+"]";
 	    // Lo anyadimos
-	    listado.appendChild(calleli);
+	    listado.appendChild(nombreli);
 	});
 	// Establecemos el listado en la Web
 	document.querySelector(".resultados").innerHTML="";
