@@ -1,34 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
 
-    <title>Datos Abiertos con NodeJS</title>
+<head>
+  <title>Mongo Fallero</title>
 
-    <meta name="description" content="Nuestro NodeJS">
-    <meta name="keywords" content="html nodejs">
+  <meta name="description" content="Nuestro NodeJS" />
+  <meta name="keywords" content="html nodejs" />
 
-    <script src="js/buscar.js"></script>
+  <script src="js/buscar.js"></script>
 
-    <style>
-      @import url("css/busqueda.css");
-    </style>
+  <style>
+    @import url("css/busqueda.css");
+  </style>
+</head>
 
-  </head>
+<body>
+  <h1>Mongo Fallero</h1>
 
-  <body>
+  <div class="busqueda">
+    <form id="busquedaform">
+      <input type="text" name="nombre" />
+      <input type="button" value="Buscar" />
+    </form>
+  </div>
 
-    <h1>- Monumentos Falleros de Valencia</h1>
+  <div class="busqueda">
+    <form action="">
+      <label for="">Sección</label> <br>
+      <select name="section" id="">
+        <option value="Todas">Todas</option>
+        <br>
+      </select>
 
-    <div class="busqueda">
-      <form id="busquedaform">
-	<input type="text" name="nombre">
-	<input type="button" value="Buscar">
-      </form>
-    </div>
+      <!-- AÑO DE FUNDACION FALLAS -->
 
-    <div class="resultados">
-    </div>
+      <br /><label for="">Año de Fundación</label> <br />
+      <input type="number" name="" placeholder="Desde" min="1849" max="9999" id="" />
+      <br />
+      <input type="number" name="" placeholder="Hasta" min="1849" max="9999" id="" /> <br>
+
+      <!-- PRINCIPAL E INFANTIL -->
+
+      <select name="" id="">
+        <option value="">Principal</option>
+        <option value="">Infantil</option>
+      </select>
+    </form>
+  </div>
+
+  <div class="resultados">
 
 
-  </body>
+  </div>
+</body>
+
 </html>
