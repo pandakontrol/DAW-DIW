@@ -1,33 +1,24 @@
 /*   sass --watch scss/busqueda.scss:public/css/busqueda.css   */
 body {
   font: 100% Helvetica, sans-serif;
-  background-color: grey;
-}
-h1{
-  text-align: center;
-}
-input{
-  width: 10%;
-}
-select{
-  width: 10%;
-}
-.falleros{
-
-  text-align: center;
+  background-color: white;
 }
 
-.busqueda{
-  text-align: center;
+.resultados{
+  
+  
 }
-
-
 .resultados2{
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
-  column-gap: 5%;
+  grid-template-columns: repeat(3,1fr);
+
+  background-color: blue;
+  
 }
 
+.falla{
 
-
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+}
 /*# sourceMappingURL=busqueda.css.map */

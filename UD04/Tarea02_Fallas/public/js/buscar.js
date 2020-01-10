@@ -45,15 +45,16 @@ function buscar() {
       // Una vez tenemos el listado filtrado pasamos a crear
       // cada uno de los <li> que representan
       let listado = document.createElement("div");
-
+      listado.classList.add("resultados2");
       // Por cada uno de ellos
       resultado.forEach(falla => {
         // Creamos un <li>
         // let nombreli = document.createElement("li");
-        let falla = document.createElement("div");
-        falla.innerHTML = "<img src=" + falla.properties.boceto + ">" + falla.properties.nombre;
+        let fallaDiv = document.createElement("div");
+        fallaDiv.classList.add("falla");
+        fallaDiv.innerHTML = "<img src=" + falla.properties.boceto + ">" + falla.properties.nombre;
         // Lo anyadimos
-        listado.appendChild(falla);
+        listado.appendChild(fallaDiv);
       });
       // Establecemos el listado en la Web
       document.querySelector(".resultados").innerHTML = "";
@@ -61,13 +62,20 @@ function buscar() {
     });
 }
 
+function removeImg() {
+
+  document.querySelector(".falleros").classList.remove;
+
+}
+
 function init() {
   // Binding de los eventos correspondientes.
 
   // Click en el boton de buscar
   document.querySelector(`input[type="button"]`).addEventListener("click", buscar);
+  document.querySelector(`input[type="button"]`).addEventListener("click", removeImg);
   // Texto cambia en el <input>
-  document.querySelector(`input[type="text"]`).addEventListener("input", toUpp);
+  //document.querySelector(`input[type="text"]`).addEventListener("input", toUpp);
 }
 
 // The mother of the lamb.
