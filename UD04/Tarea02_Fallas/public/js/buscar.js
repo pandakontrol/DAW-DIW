@@ -51,7 +51,10 @@ function buscar() {
         // Creamos un <li>
         // let nombreli = document.createElement("li");
         let fallaDiv = document.createElement("div");
+        let ubiButton = document.createElement("button");
+        ubiButton.classList.add("ubiButton");
         fallaDiv.classList.add("falla");
+
         fallaDiv.innerHTML = "<img src=" + falla.properties.boceto + ">" + falla.properties.nombre;
         // Lo anyadimos
         listado.appendChild(fallaDiv);
