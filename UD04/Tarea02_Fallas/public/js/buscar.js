@@ -5,7 +5,7 @@
 // This script is licensed under GPLv3 or higher
 
 // Algunos valores
-
+let secciones = new Array;
 const fallasUrl =
   "http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON";
 
@@ -48,8 +48,7 @@ function buscar() {
       listado.classList.add("resultados2");
       // Por cada uno de ellos
       resultado.forEach(falla => {
-        // Creamos un <li>
-        // let nombreli = document.createElement("li");
+
         let fallaDiv = document.createElement("div");
         let ubiButton = document.createElement("button");
         ubiButton.classList.add("ubiButton");
@@ -79,7 +78,36 @@ function init() {
   document.querySelector(`input[type="button"]`).addEventListener("click", removeImg);
   // Texto cambia en el <input>
   //document.querySelector(`input[type="text"]`).addEventListener("input", toUpp);
+  const fetchPromesa = fetch(fallasUrl);
+
+  fetchPromesa.then(response => {
+    return response.json();
+  }).then(respuesta => {
+    const resultado = respuesta.features;
+
+    resultado.forEach(falla => {
+
+      if (!secciones.includes(falla.properties.seccion)) secciones.push(falla.properties.seccion);
+      if (!secciones.includes(falla.properties.seccion_i)) secciones.push(falla.properties.seccion_i);
+
+    });
+    lanzarSeccion();
+
+  });
+
 }
+
+function lanzarSeccion() {
+  let desSeccion = document.getElementById("secciones");
+
+  for (let index = 0; index < secciones.length; index++) {
+    var option = document.createElement("option");
+    option.text = secciones[index];
+    desSeccion.add(option);
+
+  }
+}
+
 
 // The mother of the lamb.
 window.onload = init;
