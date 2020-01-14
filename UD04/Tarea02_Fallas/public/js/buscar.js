@@ -18,15 +18,6 @@ function filtroLetra(elemento) {
   return elemento.properties.nombre.startsWith(letra);
 }
 
-// Pasa a mayuscula el texto de propio input
-// se lanza cada vez que se realiza una insercion en
-// el texto del nombre.
-/*function toUpp() {
-  document.querySelector(`input[name="nombre"]`).value = document
-    .querySelector(`input[name="nombre"]`)
-    .value.toUpperCase();
-} */
-
 function buscar() {
   // Obtenemos el JSON que esta definido
   const fetchPromesa = fetch(fallasUrl);
@@ -43,7 +34,7 @@ function buscar() {
       const resultado = respuesta.features.filter(filtroLetra);
 
       // Una vez tenemos el listado filtrado pasamos a crear
-      // cada uno de los <li> que representan
+
       let listado = document.createElement("div");
       listado.classList.add("resultados2");
       // Por cada uno de ellos
@@ -52,11 +43,15 @@ function buscar() {
         let fallaDiv = document.createElement("div");
         let ubiButton = document.createElement("button");
         ubiButton.classList.add("ubiButton");
+        ubiButton.innerHTML = "Ubicacion";
         fallaDiv.classList.add("falla");
 
         fallaDiv.innerHTML = "<img src=" + falla.properties.boceto + ">" + falla.properties.nombre;
+
+        fallaDiv.appendChild(ubiButton);
         // Lo anyadimos
         listado.appendChild(fallaDiv);
+
       });
       // Establecemos el listado en la Web
       document.querySelector(".resultados").innerHTML = "";
@@ -76,8 +71,8 @@ function init() {
   // Click en el boton de buscar
   document.querySelector(`input[type="button"]`).addEventListener("click", buscar);
   document.querySelector(`input[type="button"]`).addEventListener("click", removeImg);
-  // Texto cambia en el <input>
-  //document.querySelector(`input[type="text"]`).addEventListener("input", toUpp);
+
+
   const fetchPromesa = fetch(fallasUrl);
 
   fetchPromesa.then(response => {
@@ -91,6 +86,7 @@ function init() {
       if (!secciones.includes(falla.properties.seccion_i)) secciones.push(falla.properties.seccion_i);
 
     });
+    secciones.sort();
     lanzarSeccion();
 
   });
