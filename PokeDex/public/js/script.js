@@ -19,7 +19,9 @@ function filtroLetra(elemento) {
 function buscar() {
 
     const fetchPromesa = fetch(pokemonUrl);
-
+    let pokemonDiv;
+    let nombrePokemon;
+    document.querySelector(".resultados").innerHTML = "";
     fetchPromesa
         .then(response => {
             // Pasamos la promesa a JSON
@@ -30,22 +32,24 @@ function buscar() {
             const resultado = respuesta.results.filter(filtroLetra);
             console.log(resultado);
             // Una vez tenemos el listado filtrado pasamos a crear
-
-            //  let listado = document.createElement("div");
-            //listado.classList.add("resultados2");
             // Por cada uno de ellos
-            resultado.forEach(falla => {
+            resultado.forEach(pokemon => {
+                console.log(pokemon.name);
+                pokemonDiv = document.createElement("div");
+                nombrePokemon = document.createElement("p");
 
-                // let fallaDiv = document.createElement("div");
-                // fallaDiv.classList.add("falla");
-                // fallaDiv.innerHTML = "<img src=" + falla.properties.boceto + ">" + falla.properties.nombre;
+                nombrePokemon.innerText = pokemon.name;
+                pokemonDiv.classList.add("pokemon");
+                //pokemonDiv.innerHTML = "<img src=" + pokemon.results.name + ">";
                 // Lo anyadimos
                 //  listado.appendChild(fallaDiv);
+                pokemonDiv.appendChild(nombrePokemon);
 
+                document.querySelector(".resultados").appendChild(pokemonDiv);
             });
             // Establecemos el listado en la Web
-            //document.querySelector(".resultados").innerHTML = "";
-            // document.querySelector(".resultados").appendChild(listado);
+
+
         });
 }
 

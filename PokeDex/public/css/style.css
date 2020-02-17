@@ -78,5 +78,20 @@ body #boton {
 body #boton:hover {
   background: #e51111;
 }
+body .resultados {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 5%;
+}
+body .resultados .pokemon {
+  border-radius: 9px 9px 9px 9px;
+  -moz-border-radius: 9px 9px 9px 9px;
+  -webkit-border-radius: 9px 9px 9px 9px;
+  background-color: white;
+  border: 3px solid;
+  height: 450px;
+  margin: 3%;
+  text-align: center;
+}
 
 /*# sourceMappingURL=style.css.map */
