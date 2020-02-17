@@ -75,7 +75,7 @@ body #boton {
   margin-top: 10px;
   padding-bottom: 5px;
 }
-body #boton:hover {
+body #boton:focus {
   background: #e51111;
 }
 body .resultados {
@@ -92,6 +92,11 @@ body .resultados .pokemon {
   height: 450px;
   margin: 3%;
   text-align: center;
+  transition: all 1s;
+}
+body .resultados .pokemon:hover {
+  transition: all 1s;
+  background: #008ec6;
 }
 
 /*# sourceMappingURL=style.css.map */

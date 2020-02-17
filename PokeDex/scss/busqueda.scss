@@ -86,7 +86,7 @@ body{
         padding-bottom: 5px;
       }
       
-      #boton:hover {
+      #boton:focus {
         background: rgb(229, 17, 17);
       }
 
@@ -104,7 +104,11 @@ body{
             height: 450px;
             margin: 3%;
             text-align: center;
- 
+            transition: all 1s;
+}
+.pokemon:hover{
+    transition: all 1s;
+    background:  rgba(0,142,198,1);
 }
       }
 }
