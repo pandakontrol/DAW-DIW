@@ -6,7 +6,9 @@ sass --watch scss/busqueda.scss:public/css/style.css
 
 // Algunas variables 
 
-let pokemonsPromesa = new Array;
+let arrayPokemon = [];
+let arrayPokemonPro = [];
+
 const pokemonUrl = "https://pokeapi.co/api/v2/pokemon";
 
 // Esta es la funcion de filtrado de pokemons
@@ -17,10 +19,12 @@ function filtroLetra(elemento) {
 }
 
 function buscar() {
-
+    console.log(arrayPokemon[0]);
     const fetchPromesa = fetch(pokemonUrl);
     let pokemonDiv;
     let nombrePokemon;
+    let imgPokemon;
+
     document.querySelector(".resultados").innerHTML = "";
     fetchPromesa
         .then(response => {
@@ -30,19 +34,22 @@ function buscar() {
         .then(respuesta => {
             //Filtramos los resultados con el filtro anterior
             const resultado = respuesta.results.filter(filtroLetra);
-            console.log(resultado);
+            //console.log(resultado);
             // Una vez tenemos el listado filtrado pasamos a crear
             // Por cada uno de ellos
-            resultado.forEach(pokemon => {
-                console.log(pokemon.name);
+            arrayPokemon.forEach(pokemon => {
+                console.log(pokemon);
                 pokemonDiv = document.createElement("div");
                 nombrePokemon = document.createElement("p");
+                imgPokemon = document.createElement("img");
 
+                imgPokemon.setAttribute("src", pokemon.sprites.front_default);
+                console.log(imgPokemon);
                 nombrePokemon.innerText = pokemon.name;
                 pokemonDiv.classList.add("pokemon");
-                //pokemonDiv.innerHTML = "<img src=" + pokemon.results.name + ">";
-                // Lo anyadimos
-                //  listado.appendChild(fallaDiv);
+
+                // Lo añadimos
+                pokemonDiv.appendChild(imgPokemon);
                 pokemonDiv.appendChild(nombrePokemon);
 
                 document.querySelector(".resultados").appendChild(pokemonDiv);
@@ -52,12 +59,42 @@ function buscar() {
 
         });
 }
+// FUNCION DE PROMESAS PARA LOS POKEMONS
+function promesaPokemon(url) {
+    return fetch(url).then(res => res.json()).then(resp => {
 
+        return resp;
+    });
+
+}
 
 function init() {
 
     // Evento en el boton de buscar 
     document.querySelector(`input[type="button"]`).addEventListener("click", buscar);
+
+    const fetchPromesa = fetch(pokemonUrl);
+    fetchPromesa.then(response => {
+        return response.json();
+    }).then(respuesta => {
+
+        respuesta.results.forEach(pokemon => {
+            arrayPokemonPro.push(promesaPokemon(pokemon.url));
+
+        });
+
+        Promise.all(arrayPokemonPro).then(pokemon => {
+            arrayPokemon.push(...pokemon);
+
+        });
+
+
+    });
+
+
+
+
+
 
 }
 
