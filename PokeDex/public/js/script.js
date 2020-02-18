@@ -8,7 +8,7 @@ sass --watch scss/busqueda.scss:public/css/style.css
 
 let arrayPokemon = [];
 let arrayPokemonPro = [];
-
+let rellenar = [];
 const pokemonUrl = "https://pokeapi.co/api/v2/pokemon";
 
 // Esta es la funcion de filtrado de pokemons
@@ -19,45 +19,36 @@ function filtroLetra(elemento) {
 }
 
 function buscar() {
-    console.log(arrayPokemon[0]);
-    const fetchPromesa = fetch(pokemonUrl);
+    //console.log(arrayPokemon[0]);
+    // const fetchPromesa = fetch(pokemonUrl);
     let pokemonDiv;
     let nombrePokemon;
     let imgPokemon;
-
+    rellenar = arrayPokemon.filter(filtroLetra);
     document.querySelector(".resultados").innerHTML = "";
-    fetchPromesa
-        .then(response => {
-            // Pasamos la promesa a JSON
-            return response.json();
-        })
-        .then(respuesta => {
-            //Filtramos los resultados con el filtro anterior
-            const resultado = respuesta.results.filter(filtroLetra);
-            //console.log(resultado);
-            // Una vez tenemos el listado filtrado pasamos a crear
-            // Por cada uno de ellos
-            arrayPokemon.forEach(pokemon => {
-                console.log(pokemon);
-                pokemonDiv = document.createElement("div");
-                nombrePokemon = document.createElement("p");
-                imgPokemon = document.createElement("img");
 
-                imgPokemon.setAttribute("src", pokemon.sprites.front_default);
-                console.log(imgPokemon);
-                nombrePokemon.innerText = pokemon.name;
-                pokemonDiv.classList.add("pokemon");
+    rellenar.forEach(pokemon => {
+        //console.log(pokemon);
 
-                // Lo añadimos
-                pokemonDiv.appendChild(imgPokemon);
-                pokemonDiv.appendChild(nombrePokemon);
+        pokemonDiv = document.createElement("div");
+        nombrePokemon = document.createElement("p");
+        imgPokemon = document.createElement("img");
 
-                document.querySelector(".resultados").appendChild(pokemonDiv);
-            });
-            // Establecemos el listado en la Web
+        imgPokemon.setAttribute("src", pokemon.sprites.front_default);
+
+        nombrePokemon.innerText = pokemon.name;
+        pokemonDiv.classList.add("pokemon");
+
+        // Lo añadimos
+        pokemonDiv.appendChild(imgPokemon);
+        pokemonDiv.appendChild(nombrePokemon);
+
+        document.querySelector(".resultados").appendChild(pokemonDiv);
+    });
+    // Establecemos el listado en la Web
 
 
-        });
+
 }
 // FUNCION DE PROMESAS PARA LOS POKEMONS
 function promesaPokemon(url) {
@@ -90,11 +81,6 @@ function init() {
 
 
     });
-
-
-
-
-
 
 }
 
