@@ -24,25 +24,44 @@ function buscar() {
     let pokemonDiv;
     let nombrePokemon;
     let imgPokemon;
+    let idPokemon;
+    let tipoPokemon;
     rellenar = arrayPokemon.filter(filtroLetra);
     document.querySelector(".resultados").innerHTML = "";
 
     rellenar.forEach(pokemon => {
         //console.log(pokemon);
 
+        // Creamos el div de cada pokemon
         pokemonDiv = document.createElement("div");
-        nombrePokemon = document.createElement("p");
-        imgPokemon = document.createElement("img");
-
-        imgPokemon.setAttribute("src", pokemon.sprites.front_default);
-
-        nombrePokemon.innerText = pokemon.name;
         pokemonDiv.classList.add("pokemon");
 
-        // Lo añadimos
+        // Creamos la imagen de cada Pokemon
+        imgPokemon = document.createElement("img");
+        imgPokemon.setAttribute("src", pokemon.sprites.front_default);
+
+        //Creamos el elemento P para el nombre del Pokemon
+        nombrePokemon = document.createElement("p");
+        nombrePokemon.innerText = pokemon.name;
+        nombrePokemon.style.textTransform = "uppercase";
+
+        // Creamos el elemento P del numero del Pokemón
+        idPokemon = document.createElement("p");
+        idPokemon.classList.add("idPokemon");
+        idPokemon.innerText = "#" + pokemon.id;
+
+        //Creamos el elemento P del tipo del Pokemon
+        tipoPokemon = document.createElement("p");
+        tipoPokemon.innerText = pokemon.types[0].type.name;
+        tipoPokemon.style.textTransform = "uppercase";
+        tipoPokemon.classList.add("tipoPokemon");
+
+
+        // Lo añadimos al div de cada Pokemon
         pokemonDiv.appendChild(imgPokemon);
         pokemonDiv.appendChild(nombrePokemon);
-
+        pokemonDiv.appendChild(idPokemon);
+        pokemonDiv.appendChild(tipoPokemon);
         document.querySelector(".resultados").appendChild(pokemonDiv);
     });
     // Establecemos el listado en la Web
