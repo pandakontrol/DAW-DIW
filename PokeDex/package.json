@@ -16,7 +16,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "node": "^13.3.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.2",
     "sass": "^1.23.7"
   }
